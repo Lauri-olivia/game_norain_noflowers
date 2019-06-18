@@ -1,0 +1,48 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  color: #bd549d;
+  text-align: center;
+}
+
+#title {
+  width: 1000px;
+  background-color: beige;
+}
+
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: "red";
+}
+
+#navbar {
+  background-color: rgb(190, 162, 189);
+  background-size: cover;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#score {
+  padding: 2%;
+  -weight: 400;
+}
+
+#level {
+  padding: 2%;
+  text-align: right;
+}
+
+#start {
+  padding: 2%;
+  text-align: left;
+}
+
+body {
+  width: 1000;
+}

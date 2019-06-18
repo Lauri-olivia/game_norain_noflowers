@@ -12,14 +12,12 @@ class Game {
     this.blumen2 = loadImage("/assets/blumen.png");
     this.bg = loadImage("/assets/final-bg.png");
     this.clouds = loadImage("/assets/background-clouds.png");
-    this.zwerg = loadImage("/assets/zwerg.png");
   }
 
   draw() {
     image(this.bg, 0, 0, 1000, 700);
     image(this.blumen1, 0, 200, 800, 400);
     image(this.blumen2, 200, 200, 800, 400);
-    image(this.zwerg, 830, 300, 200, 300);
 
     const imgWidth = this.x.width;
     image(this.clouds, this.x, 10, 1000, 200);
@@ -48,7 +46,7 @@ class Game {
       }
     });
 
-    if (game.score % 10 === 0) {
+    if (game.score % 20 === 0) {
       game.level += 1;
       game.score += 1;
     }
