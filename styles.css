@@ -9,9 +9,10 @@ h1 {
   text-align: center;
 }
 
-#title {
-  width: 1000px;
-  background-color: beige;
+#logo {
+  display: flex;
+  height: 00px;
+  width: 10px;
 }
 
 h3 {
@@ -28,19 +29,38 @@ h3 {
   justify-content: space-between;
 }
 
+.p5Canvas {
+  display: flex;
+}
 #score {
-  padding: 2%;
-  -weight: 400;
+  width: 30;
+  height: 50;
+  margin: 20px;
 }
 
 #level {
-  padding: 2%;
-  text-align: right;
+  width: 20;
+  height: 100;
+  margin: 20px;
 }
 
-#start {
-  padding: 2%;
-  text-align: left;
+#game {
+  display: flex;
+}
+
+#gameState {
+  display: flex;
+  justify-items: right;
+  padding: 3rem;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 30px;
+  border-radius: 60px;
+  height: 40px;
+  width: 250px;
+  position: absolute;
+  z-index: 0;
+  background: #88b7d5;
+  border: 2px solid #c2e1f5;
 }
 
 body {

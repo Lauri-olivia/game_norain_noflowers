@@ -9,23 +9,12 @@ class Player {
   }
   draw() {
     image(this.gieskanne, this.x, this.y, 150, 150);
-    this.limitPlayer();
-  }
-
-  playerMove() {
-    if (keyCode === LEFT_ARROW) {
-      this.x -= 100;
-    } else if (keyCode === RIGHT_ARROW) {
-      this.x += 100;
+    // this.limitPlayer();
+    if (keyIsDown(LEFT_ARROW) && this.x > 100) {
+      this.x -= 8;
     }
-  }
-
-  limitPlayer() {
-    if (this.x > 900) {
-      this.x = 800;
-    }
-    if (this.x < 0) {
-      this.x = 100;
+    if (keyIsDown(RIGHT_ARROW) && this.x < 800) {
+      this.x += 8;
     }
   }
 }

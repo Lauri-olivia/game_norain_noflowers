@@ -11,6 +11,7 @@ class Raindrops {
     this.raindropsBottom = this.x;
 
     this.raindrop = loadImage("/assets/raindrop2.png");
+    this.raindrop2 = loadImage("/assets/raindrop2.png");
   }
 
   draw() {
