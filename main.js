@@ -4,7 +4,7 @@ let button;
 let bgSound;
 
 function preload() {
-  bgSound = loadSound("assets/BgMusic.mp3");
+  // bgSound = loadSound("assets/BgMusic.mp3");
 }
 
 function setup() {
@@ -25,10 +25,11 @@ function startGame() {
   game.started = true;
   button.hide();
   document.getElementById("gameState").style.visibility = "hidden";
+  bgSound = loadSound("assets/BgMusic.mp3");
 }
 
 function draw() {
-  if (!bgSound.isPlaying()) bgSound.loop();
+  if (bgSound && bgSound.isLoaded() && !bgSound.isPlaying()) bgSound.loop();
   if (game.over === true) {
     game.setup();
   } else {
