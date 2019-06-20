@@ -10,10 +10,7 @@ class Raindrops {
     this.size = 50;
     this.raindropsBottom = this.x;
 
-    // this.raindrop1 = loadImage("/assets/raindrop1.png");
-    this.raindrop2 = loadImage("/assets/raindrop2.png");
-    // this.raindrop3 = loadImage("/assets/raindrop3.png");
-    // this.sun = loadImage("/assets/sun.png");
+    this.raindrop2 = loadImage("assets/raindrop2.png");
   }
 
   draw() {

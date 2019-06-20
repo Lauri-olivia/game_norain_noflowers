@@ -6,15 +6,20 @@ class Game {
     this.x1 = WIDTH;
     this.gameState = "START";
     this.started = false;
+
+    this.speed = 0.2;
+    this.y1 = HEIGHT;
+    this.y2 = HEIGHT;
+    this.y3 = HEIGHT;
   }
 
   setup() {
-    this.blumen1 = loadImage("/assets/blumen.png");
-    this.blumen2 = loadImage("/assets/blumen.png");
-    this.bg = loadImage("/assets/final-bg.png");
-    this.clouds = loadImage("/assets/background-clouds.png");
-    this.zwerg = loadImage("/assets/zwerg.png");
-    this.logo = loadImage("/assets/logi.png");
+    this.blumen1 = loadImage("assets/blumen.png");
+    this.blumen2 = loadImage("assets/blumen.png");
+    this.bg = loadImage("assets/final-bg.png");
+    this.clouds = loadImage("assets/background-clouds.png");
+    this.zwerg = loadImage("assets/zwerg.png");
+    this.logo = loadImage("assets/logi.png");
 
     this.score = 0;
     this.level = 1;
@@ -22,9 +27,7 @@ class Game {
     this.over = false;
 
     document.getElementById("gameState").innerHTML = `Hello Sunshine! <br />
-    Try to catch as much raindrops as possible and let the flowers grow.
-    <br />
-    Thanks for helping, you are awesome!`;
+    Thanks for catching raindrops, you are awesome!`;
 
     document.getElementById("score").innerHTML = "SCORE: " + game.score;
     document.getElementById("level").innerHTML = "LEVEL: " + game.level;
@@ -34,9 +37,33 @@ class Game {
 
   draw() {
     image(this.bg, 0, 0, 1000, 700);
-    image(this.blumen1, 0, 200, 800, 400);
-    image(this.blumen2, 200, 200, 800, 400);
-    image(this.zwerg, 850, 380, 150, 220);
+    image(this.blumen1, 0, this.y1, 800, 400);
+    image(this.blumen1, 200, this.y2, 800, 400);
+    image(this.blumen1, 50, this.y3, 800, 400);
+    image(this.blumen2, 100, 260, 800, 400);
+    image(this.zwerg, 840, 180, 200, 320);
+
+    this.speed -= 0.0009;
+
+    if (this.score > 5) {
+      this.y1 = this.y1 + this.speed;
+    }
+    if (this.y1 < 380) {
+      this.y1 = 380;
+    }
+    if (this.level > 1) {
+      this.y2 = this.y2 + this.speed;
+    }
+    if (this.y2 < 300) {
+      this.y2 = 300;
+    }
+
+    if (this.level > 2) {
+      this.y3 = this.y3 + this.speed * 0.3;
+    }
+    if (this.y3 < 180) {
+      this.y3 = 180;
+    }
 
     const imgWidth = this.x.width;
     image(this.clouds, this.x, 10, 1000, 200);
@@ -52,7 +79,6 @@ class Game {
     this.x1 -= 2;
 
     if (this.started === true) {
-      debugger;
       player.draw();
 
       if (frameCount % 100 == 0) {
@@ -77,14 +103,17 @@ class Game {
       if (game.score < 0) {
         document.getElementById("gameState").innerHTML =
           "GAME OVER! Don't be sad & try another round.";
+        document.getElementById("gameState").style.visibility = "visible";
         noLoop();
         this.over = true;
         button.show();
       }
 
-      if (game.score > 20)
+      if (game.score > 30) {
+        document.getElementById("gameState").style.visibility = "visible";
         document.getElementById("gameState").innerHTML =
-          "WINNER! Thanks for your help, you make the world a better place.";
+          "WINNER! Thanks for your help, you make the world a better place. Spread love!";
+      }
     }
   }
 }
