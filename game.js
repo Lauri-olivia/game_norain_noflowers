@@ -4,6 +4,8 @@ class Game {
 
     this.x = 0;
     this.x1 = WIDTH;
+    this.x2 = WIDTH;
+    this.x3 = WIDTH;
     this.gameState = "START";
     this.started = false;
 
@@ -20,13 +22,15 @@ class Game {
     this.clouds = loadImage("assets/background-clouds.png");
     this.zwerg = loadImage("assets/zwerg.png");
     this.logo = loadImage("assets/logi.png");
+    this.wow = loadImage("assets/wow.png");
+    // this.yeah = loadImage("assets/Yeah.png");
 
     this.score = 0;
     this.level = 1;
     this.step = 10;
     this.over = false;
 
-    document.getElementById("gameState").innerHTML = `Hello Sunshine! <br />
+    document.getElementById("gameState").innerHTML = `Hello ☀️! <br />
     Thanks for catching raindrops, you are awesome!`;
 
     document.getElementById("score").innerHTML = "SCORE: " + game.score;
@@ -65,7 +69,6 @@ class Game {
       this.y3 = 180;
     }
 
-    const imgWidth = this.x.width;
     image(this.clouds, this.x, 10, 1000, 200);
     image(this.clouds, this.x1, 10, 1000, 220);
 
@@ -77,6 +80,16 @@ class Game {
     }
     this.x -= 2;
     this.x1 -= 2;
+
+    image(this.wow, this.x2, 20, 200, 300);
+    if (this.score > 7) {
+      this.x2 = this.x2 + this.speed;
+    }
+
+    image(this.wow, this.x3, 20, 200, 300);
+    if (this.score > 23) {
+      this.x3 = this.x3 + this.speed * 0.5;
+    }
 
     if (this.started === true) {
       player.draw();
